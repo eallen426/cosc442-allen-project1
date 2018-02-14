@@ -22,15 +22,18 @@ public class GameBoard {
             chanceCards.add(card);
         }
     }
+    
+    public void add() {
+    	
+    }
 	
 	public void addCell(Cell cell) {
 		cells.add(cell);
 	}
 	
 	public void addCell(PropertyCell cell) {
-		String colorGroup = cell.getColorGroup();
-		int propertyNumber = getPropertyNumberForColor(colorGroup);
-		colorGroups.put(colorGroup, new Integer(propertyNumber + 1));
+		int propertyNumber = getPropertyNumberForColor(cell.getColorGroup());
+		colorGroups.put(cell.getColorGroup(), new Integer(propertyNumber + 1));
         cells.add(cell);
 	}
 
@@ -61,7 +64,7 @@ public class GameBoard {
 			new PropertyCell[getPropertyNumberForColor(color)];
 		int counter = 0;
 		for (int i = 0; i < getCellNumber(); i++) {
-			IOwnable c = getCell(i);
+			Cell c = getCell(i);
 			if(c instanceof PropertyCell) {
 				PropertyCell pc = (PropertyCell)c;
 				if(pc.getColorGroup().equals(color)) {
@@ -104,4 +107,15 @@ public class GameBoard {
     public void removeCards() {
         communityChestCards.clear();
     }
+
+	public Object getChanceCards() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getCommunityChestCards() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
+
